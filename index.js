@@ -17,7 +17,7 @@ mongoose.connect(process.env.DBURL).then(() => { console.log("DB Connected") }).
 
 app.use(express.urlencoded({ extended: 'false' }))
 app.use(cors({
-    "origin": "http://localhost:5173",
+    "origin": "http://localhost:5173","https://ecom-frontend-gold-gamma.vercel.app/","https://ecom-frontend-tharunnaidugs-projects.vercel.app/","https://ecom-frontend-git-main-tharunnaidugs-projects.vercel.app/",
     credentials:true
 }))
 app.use(cookieParser())
