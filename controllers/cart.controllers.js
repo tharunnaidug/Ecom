@@ -71,8 +71,8 @@ export const update = async (req, res) => {
                     cart.items[i].qty--;
                     await cart.save()
 
-                    if (cart.items[i].qty == 1 ||cart.items[i].qty == 0) {
-                        console.log(cart.items[i].productId, productId, inside)
+                    if (cart.items[i].qty == 1 ) {
+                       // console.log(cart.items[i].productId, productId, inside)
                         //remove the product
                         cart.items.splice(i, 1)
                         await cart.save()
