@@ -66,20 +66,18 @@ export const update = async (req, res) => {
 
 
             for (let i = 0; i < cart.items.length; i++) {
+               if (cart.items[i].productId == productId) {
+                  cart.items[i].qty--;
 
-                if (cart.items[i].productId == productId) {
-                    cart.items[i].qty--;
-                    await cart.save()
+                  if (cart.items[i].qty == 0) {
+                     cart.items.splice(i, 1);
+              }
 
-                    if (cart.items[i].qty == 1 ) {
-                       // console.log(cart.items[i].productId, productId, inside)
-                        //remove the product
-                        cart.items.splice(i, 1)
-                        await cart.save()
-                        return res.status(200).json({ message: "success", cart: cart })
-                    }
-                    return res.status(200).json({ message: "success", cart: cart })
-                }
+                 await cart.save();
+              return res.status(200).json({ message: "success", cart: cart });
+    }
+}
+
             }
         }
 
